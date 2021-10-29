@@ -44,4 +44,24 @@ void insert_item(int itemID)
     }
 }
 
+void print_all_transactions()
+{
+    ptr = head;
+    while (ptr) {
+        ptr->item_list_tail = ptr->item_list_head;
+        while (ptr->item_list_tail) {
+            printf("%d ", ptr->item_list_tail->itemID);
+            if (ptr->item_list_tail->next)
+                ptr->item_list_tail = ptr->item_list_tail->next;
+            else
+                break;
+        }
+        printf("\n");
+        if (ptr->next)
+            ptr = ptr->next;
+        else
+            break;
+    }
+}
+
 #endif

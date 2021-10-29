@@ -17,6 +17,9 @@ typedef struct transaction {
 Transaction *head = NULL;
 Transaction *ptr = NULL;
 
+/* Create an empty transaction, and append it to the end of 
+ * the linked list of transactions.
+ */
 void add_transaction()
 {
     Transaction *new_transaction = (Transaction *)malloc(sizeof(Transaction));
@@ -31,6 +34,9 @@ void add_transaction()
     }
 }
 
+/* Insert a new item into the linked list of items in
+ * current transaction.
+ */
 void insert_item(int itemID)
 {
     Item *new_item = (Item *)malloc(sizeof(Item));
@@ -44,6 +50,9 @@ void insert_item(int itemID)
     }
 }
 
+/* Print out item list of each transaction, one 
+ * transaction per line.
+ */
 void print_all_transactions()
 {
     ptr = head;

@@ -1,5 +1,7 @@
 *.exe
+*.sh
 *.txt
+*.o
 
 data*
 pat*

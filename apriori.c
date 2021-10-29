@@ -11,6 +11,15 @@ int main(int argc, char *argv[])
     int status = command_handler(argc, argv, &in, &out, &support, &confidence);
     if (status == COMMAND_ERROR)
         return 0;
-    
-    
+
+    /* Construct transactions' data structure. */
+    int customerID, transactionID, itemID;
+    int now_transactionID = 0;
+    while (fscanf(in, "%d %d %d", &customerID, &transactionID, &itemID) != EOF) {
+        if (transactionID != now_transactionID) {
+            now_transactionID = transactionID;
+            add_transaction();
+        }
+        insert_item(itemID);
+    }
 }

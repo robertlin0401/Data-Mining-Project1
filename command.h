@@ -12,17 +12,21 @@
 int help_command(char *argv[], char *err_msg)
 {
     printf("%s\n", err_msg);
-    printf("Usage:\n");
-    printf("  execute | %s -i <input> [-o <output>]\n", argv[0]);
-    printf("  help    | %s -h\n", argv[0]);
+    printf("Usages:\n");
+    printf("  exec | %s -i <input> -s <support> -c <confidence> [-o <output>]\n", argv[0]);
+    printf("  help | %s -h\n", argv[0]);
     printf("Options:\n");
-    printf("  -h, --help   | Show usages and list available options.\n");
-    printf("  -i, --input  | Specify the input directory. (required)\n");
-    printf("  -o, --output | Specify the output directory. (defalut: output.txt)\n");
+    printf("  -h, --help       | Show usages and list available options.\n");
+    printf("  -i, --input      | Specify the input directory. (required)\n");
+    printf("  -o, --output     | Specify the output directory. (defalut: output.txt)\n");
+    printf("  -s, --support    | Fraction of transactions that contain the items which appear\n");
+    printf("                   | in association rule. (required)\n");
+    printf("  -c, --confidence | Fraction of transactions that contain the rule head among all\n"); 
+    printf("                   | transactions which contain the rule body. (required)\n");
     return COMMAND_ERROR;
 }
 
-int command_handler(int argc, char *argv[], FILE **in, FILE **out)
+int command_handler(int argc, char *argv[], FILE **in, FILE **out, float *support, float *confidence)
 {
     /* Check if there is -h or --help flag. */
     for (int i = 1; i < argc; ++i) 
@@ -34,7 +38,7 @@ int command_handler(int argc, char *argv[], FILE **in, FILE **out)
         return help_command(argv, "Wrong format! Please check out your command.");
 
     /* Process the command and setup corresponding variables. */
-    bool has_flag_used[2] = {0, 0}; // {-i, -o}
+    bool has_flag_used[4] = {0, 0, 0, 0}; // {-i, -o, -s, -c}
     for (int i = 1; i < argc; i += 2) {
         char *flag = argv[i];
         char *value = argv[i + 1];
@@ -58,6 +62,24 @@ int command_handler(int argc, char *argv[], FILE **in, FILE **out)
             
             *out = fopen(value, "w");
 
+        } else if (strcmp(flag, "-s") == 0 || strcmp(flag, "--support") == 0) {
+
+            if (!has_flag_used[2])
+                has_flag_used[2] = 1;
+            else
+                return help_command(argv, "Multiple support options! Please check out your command.");
+            
+            *support = atof(value);
+
+        } else if (strcmp(flag, "-c") == 0 || strcmp(flag, "--confidence") == 0) {
+
+            if (!has_flag_used[3])
+                has_flag_used[3] = 1;
+            else
+                return help_command(argv, "Multiple confidence options! Please check out your command.");
+            
+            *confidence = atof(value);
+
         } else {
             return help_command(argv, NULL);
         }
@@ -66,6 +88,10 @@ int command_handler(int argc, char *argv[], FILE **in, FILE **out)
         return help_command(argv, "No input directory! Please check out your command.");
     if (!has_flag_used[1])
         *out = fopen("output.txt", "w");
+    if (!has_flag_used[2])
+        return help_command(argv, "No support value! Please check out your command.");
+    if (!has_flag_used[3])
+        return help_command(argv, "No confidence value! Please check out your command.");
     
     return COMMAND_CORRECT;
 }

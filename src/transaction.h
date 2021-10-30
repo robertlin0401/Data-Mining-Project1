@@ -14,8 +14,8 @@ typedef struct transaction {
     struct transaction *next;
 } Transaction;
 
-Transaction *head = NULL;
-Transaction *ptr = NULL;
+Transaction *transaction_head = NULL;
+Transaction *transaction_ptr = NULL;
 
 /* Create an empty transaction, and append it to the end of 
  * the linked list of transactions.
@@ -26,11 +26,11 @@ void add_transaction()
     new_transaction->item_list_head = NULL;
     new_transaction->item_list_tail = NULL;
     new_transaction->next = NULL;
-    if (!ptr) {
-        head = ptr = new_transaction;
+    if (!transaction_ptr) {
+        transaction_head = transaction_ptr = new_transaction;
     } else {
-        ptr->next = new_transaction;
-        ptr = new_transaction;
+        transaction_ptr->next = new_transaction;
+        transaction_ptr = new_transaction;
     }
 }
 
@@ -42,11 +42,11 @@ void insert_item(int itemID)
     Item *new_item = (Item *)malloc(sizeof(Item));
     new_item->itemID = itemID;
     new_item->next = NULL;
-    if (!ptr->item_list_head) {
-        ptr->item_list_head = ptr->item_list_tail = new_item;
+    if (!transaction_ptr->item_list_head) {
+        transaction_ptr->item_list_head = transaction_ptr->item_list_tail = new_item;
     } else {
-        ptr->item_list_tail->next = new_item;
-        ptr->item_list_tail = new_item;
+        transaction_ptr->item_list_tail->next = new_item;
+        transaction_ptr->item_list_tail = new_item;
     }
 }
 
@@ -55,19 +55,19 @@ void insert_item(int itemID)
  */
 void print_all_transactions()
 {
-    ptr = head;
-    while (ptr) {
-        ptr->item_list_tail = ptr->item_list_head;
-        while (ptr->item_list_tail) {
-            printf("%d ", ptr->item_list_tail->itemID);
-            if (ptr->item_list_tail->next)
-                ptr->item_list_tail = ptr->item_list_tail->next;
+    transaction_ptr = transaction_head;
+    while (transaction_ptr) {
+        transaction_ptr->item_list_tail = transaction_ptr->item_list_head;
+        while (transaction_ptr->item_list_tail) {
+            printf("%d ", transaction_ptr->item_list_tail->itemID);
+            if (transaction_ptr->item_list_tail->next)
+                transaction_ptr->item_list_tail = transaction_ptr->item_list_tail->next;
             else
                 break;
         }
         printf("\n");
-        if (ptr->next)
-            ptr = ptr->next;
+        if (transaction_ptr->next)
+            transaction_ptr = transaction_ptr->next;
         else
             break;
     }

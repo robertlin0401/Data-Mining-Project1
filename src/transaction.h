@@ -22,7 +22,7 @@ Item *new_item(int itemID)
 {
     Item *item_ptr = (Item *)malloc(sizeof(Item));
     item_ptr->itemID = itemID;
-    item_ptt->next = NULL;
+    item_ptr->next = NULL;
     return item_ptr;
 }
 
@@ -48,7 +48,7 @@ void new_transaction()
  */
 void insert_item(int itemID)
 {
-    Item *item_ptr = new_item(Item);
+    Item *item_ptr = new_item(itemID);
     if (!transaction_ptr->item_list_head) {
         transaction_ptr->item_list_head = transaction_ptr->item_list_tail = item_ptr;
     } else {

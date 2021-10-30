@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     while (fscanf(in, "%d %d %d", &customerID, &transactionID, &itemID) != EOF) {
         if (transactionID != now_transactionID) {
             now_transactionID = transactionID;
-            add_transaction();
+            new_transaction();
         }
         insert_item(itemID);
     }

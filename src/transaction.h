@@ -20,7 +20,7 @@ Transaction *transaction_ptr = NULL;
 /* Create an empty transaction, and append it to the end of 
  * the linked list of transactions.
  */
-void add_transaction()
+void new_transaction()
 {
     Transaction *new_transaction = (Transaction *)malloc(sizeof(Transaction));
     new_transaction->item_list_head = NULL;

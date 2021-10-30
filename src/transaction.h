@@ -17,6 +17,15 @@ typedef struct transaction {
 Transaction *transaction_head = NULL;
 Transaction *transaction_ptr = NULL;
 
+/* Allocate a new item and initialize its content. */
+Item *new_item(int itemID)
+{
+    Item *item_ptr = (Item *)malloc(sizeof(Item));
+    item_ptr->itemID = itemID;
+    item_ptt->next = NULL;
+    return item_ptr;
+}
+
 /* Create an empty transaction, and append it to the end of 
  * the linked list of transactions.
  */
@@ -39,14 +48,12 @@ void new_transaction()
  */
 void insert_item(int itemID)
 {
-    Item *new_item = (Item *)malloc(sizeof(Item));
-    new_item->itemID = itemID;
-    new_item->next = NULL;
+    Item *item_ptr = new_item(Item);
     if (!transaction_ptr->item_list_head) {
-        transaction_ptr->item_list_head = transaction_ptr->item_list_tail = new_item;
+        transaction_ptr->item_list_head = transaction_ptr->item_list_tail = item_ptr;
     } else {
-        transaction_ptr->item_list_tail->next = new_item;
-        transaction_ptr->item_list_tail = new_item;
+        transaction_ptr->item_list_tail->next = item_ptr;
+        transaction_ptr->item_list_tail = item_ptr;
     }
 }
 

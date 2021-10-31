@@ -17,6 +17,8 @@ Frequent *frequent_ptr = NULL;
 
 Hash *candidate_head = NULL;
 
+int frequent_level = 1;
+
 void generate_candidate(int itemID_digit)
 {
     if (!candidate_head) { // level-1 candidates
@@ -93,17 +95,31 @@ void count_support_of_candidate(int itemID_digit)
         Itemset *transaction_itemset = new_itemset();
         transaction_itemset->item_list_head = transaction_ptr->item_list_head;
         transaction_itemset->length = transaction_ptr->length;
+        Itemset *transaction_sub_itemset = generate_sub_itemset(transaction_itemset, frequent_level);
 
-        while (transaction_itemset->item_list_head) {
-            Itemset *candidate_itemset = look_up_hash(candidate_head, transaction_itemset, itemID_digit, 1);
+        Itemset *transaction_sub_ptr = transaction_sub_itemset;
+        while (transaction_sub_ptr) {
+            Itemset *candidate_itemset = look_up_hash(candidate_head, transaction_sub_ptr, itemID_digit, 1);
             while (candidate_itemset) {
-                if (is_sub_itemset(candidate_itemset, transaction_itemset))
+                if (is_identical_itemset(candidate_itemset, transaction_sub_ptr))
                     candidate_itemset->count++;
                 candidate_itemset = candidate_itemset->next;
             }
-            transaction_itemset->item_list_head = transaction_itemset->item_list_head->next;
+            transaction_sub_ptr = transaction_sub_ptr->next;
         }
         
+        while (transaction_sub_itemset) {
+            Item *item_list_head = transaction_sub_itemset->item_list_head;
+            while (item_list_head) {
+                Item *temp = item_list_head->next;
+                free(item_list_head);
+                item_list_head = temp;
+            }
+            Itemset *temp = transaction_sub_itemset->next;
+            free(transaction_sub_itemset);
+            transaction_sub_itemset = temp;
+        }
+
         if (transaction_ptr->next)
             transaction_ptr = transaction_ptr->next;
         else

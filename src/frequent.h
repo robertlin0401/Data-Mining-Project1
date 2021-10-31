@@ -17,7 +17,7 @@ Frequent *frequent_ptr = NULL;
 
 Hash *candidate_head = NULL;
 
-void generate_candidate(int support_count, int itemID_digit)
+void generate_candidate(int itemID_digit)
 {
     if (!candidate_head) { // level-1 candidates
         candidate_head = new_hash();

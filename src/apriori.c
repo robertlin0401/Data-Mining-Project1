@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
         temp /= 10;
         itemID_digit++;
     }
-    generate_candidate(support_count, itemID_digit);
+    generate_candidate(itemID_digit);
 
     return 0;
 }

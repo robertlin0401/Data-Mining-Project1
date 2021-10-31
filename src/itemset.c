@@ -62,6 +62,7 @@ bool is_sub_itemset(Itemset *target, Itemset *comparison)
 void print_itemset(Itemset *target)
 {
     Item *temp = target->item_list_head;
+    printf("%4d | ", target->count);
     printf("{");
     while (1) {
         printf("%d", temp->itemID);

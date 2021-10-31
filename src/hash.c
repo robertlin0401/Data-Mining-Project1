@@ -83,7 +83,7 @@ void print_hash(Hash *target)
             Itemset *temp = (Itemset *)target->ptr[i];
             while (temp) {
                 print_itemset(temp);
-                printf(" ");
+                printf("\n");
                 temp = temp->next;
             }
             printf("\n");

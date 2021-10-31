@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include "transaction.h"
 
+Transaction *transaction_head = NULL;
+Transaction *transaction_ptr = NULL;
+
 Item *new_item(int itemID)
 {
     Item *item_ptr = (Item *)malloc(sizeof(Item));

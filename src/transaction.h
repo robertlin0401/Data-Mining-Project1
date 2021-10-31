@@ -13,8 +13,7 @@ typedef struct transaction {
     struct transaction *next;
 } Transaction;
 
-Transaction *transaction_head = NULL;
-Transaction *transaction_ptr = NULL;
+extern Transaction *transaction_head, *transaction_ptr;
 
 /* Allocate a new item and initialize its content. */
 Item *new_item(int itemID);

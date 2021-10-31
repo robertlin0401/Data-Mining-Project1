@@ -49,6 +49,8 @@ void generate_candidate(int itemID_digit)
                                 break;
                             item_list_ptr = item_list_ptr->next;
                         }
+                        if (item_list_ptr->itemID == transaction_ptr->item_list_ptr->itemID)
+                            is_unique = 0;
                         if (is_unique) {
                             Item *item_ptr = new_item(transaction_ptr->item_list_ptr->itemID);
                             item_ptr->next = item_list_ptr->next;

@@ -87,9 +87,12 @@ void generate_candidate(int itemID_digit)
     // print_hash(candidate_head);
 }
 
+/* Traverse through the transactions and generate sub-itemsets for each transaction.
+ * Look up each sub-itemset in the hash table and increase the count of the found
+ * candidate.
+ */
 void count_support_of_candidate(int itemID_digit)
 {
-    /* Traverse through the transactions and count the appearing time of each candidate itemset. */
     transaction_ptr = transaction_head;
     while (transaction_ptr) {
         Itemset *transaction_itemset = new_itemset();
@@ -125,7 +128,7 @@ void count_support_of_candidate(int itemID_digit)
         else
             break;
     }
-    print_hash(candidate_head);
+    // print_hash(candidate_head);
 }
 
 #endif

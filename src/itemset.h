@@ -18,4 +18,7 @@ Itemset *new_itemset();
  */
 void insert_item_into_itemset(Itemset *target, int itemID);
 
+/* Print out the item list of target itemset. */
+void print_itemset(Itemset *target);
+
 #endif

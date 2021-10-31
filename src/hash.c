@@ -57,3 +57,22 @@ void insert_itemset_into_hash(Hash *target, Itemset *itemset_ptr, int itemID_dig
         }
     }
 }
+
+void print_hash(Hash *target)
+{
+    for (int i = 0; i < 10; ++i) {
+        if (!target->ptr[i])
+            continue;
+        if (target->is_hash[i])
+            print_hash((Hash *)target->ptr[i]);
+        else {
+            Itemset *temp = (Itemset *)target->ptr[i];
+            while (temp) {
+                print_itemset(temp);
+                printf(" ");
+                temp = temp->next;
+            }
+            printf("\n");
+        }
+    }
+}

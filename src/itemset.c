@@ -34,3 +34,18 @@ void insert_item_into_itemset(Itemset *target, int itemID)
     }
     target->length++;
 }
+
+void print_itemset(Itemset *target)
+{
+    Item *temp = target->item_list_head;
+    printf("{");
+    while (1) {
+        printf("%d", temp->itemID);
+        temp = temp->next;
+        if (temp)
+            printf(", ");
+        else
+            break;
+    }
+    printf("}");
+}

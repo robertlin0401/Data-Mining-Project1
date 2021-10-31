@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "command.h"
 #include "transaction.h"
+#include "frequent.h"
 
 int main(int argc, char *argv[])
 {
@@ -25,6 +27,19 @@ int main(int argc, char *argv[])
         insert_item(itemID);
     }
     // print_all_transactions();
+
+    /*============================================================
+     *                    Apriori Algorithm
+     *============================================================
+     */
+    /* Find frequent itemsets. */
+    int support_count = ceil(transaction_count * support);
+    int itemID_digit = 0, temp = max_itemID;
+    while (temp / 10 > 0) {
+        temp /= 10;
+        itemID_digit++;
+    }
+    generate_candidate(support_count, itemID_digit);
 
     return 0;
 }

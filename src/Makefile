@@ -1,10 +1,11 @@
-CC	:= gcc
-obj := hash.o itemset.o transaction.o apriori.o
+CC	 := gcc
+obj  := hash.o itemset.o transaction.o apriori.o
+flag := -Wall
 
 all: apriori
 
 apriori: $(obj)
-	$(CC) -o $@ $(obj)
+	$(CC) $(flag) -o $@ $(obj)
 
 %.o: %.c
 	$(CC) -c $^

@@ -35,6 +35,26 @@ void insert_item_into_itemset(Itemset *target, int itemID)
     target->length++;
 }
 
+Itemset *generate_sub_itemset(Itemset *itemset_ptr, int length)
+{
+    if (length == 1) {
+        Item *item_list_ptr = itemset_ptr->item_list_head;
+        Itemset *result = NULL, *ptr = NULL;
+        while (item_list_ptr) {
+            Itemset *temp = new_itemset();
+            insert_item_into_itemset(temp, item_list_ptr->itemID);
+            if (!ptr) {
+                result = ptr = temp;
+            } else {
+                ptr->next = temp;
+                ptr = temp;
+            }
+            item_list_ptr = item_list_ptr->next;
+        }
+        return result;
+    }
+}
+
 bool is_sub_itemset(Itemset *target, Itemset *comparison)
 {
     int length_diff = comparison->length - target->length;
@@ -57,6 +77,11 @@ bool is_sub_itemset(Itemset *target, Itemset *comparison)
 
         comparison_item_list = comparison_item_list->next;
     }
+}
+
+bool is_identical_itemset(Itemset *target, Itemset *comparison)
+{
+    return target->length == comparison->length && is_sub_itemset(target, comparison);
 }
 
 void print_itemset(Itemset *target)

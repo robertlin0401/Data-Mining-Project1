@@ -6,6 +6,14 @@
 #include "itemset.h"
 #include "hash.h"
 
+typedef struct frequent {
+    Itemset *itemset_list_head;
+    int level;
+    struct frequent *next;
+} Frequent;
+
+Frequent *frequent_head = NULL;
+Frequent *frequent_ptr = NULL;
 
 Hash *candidate_head = NULL;
 

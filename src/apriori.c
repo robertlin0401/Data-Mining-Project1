@@ -14,12 +14,17 @@ int main(int argc, char *argv[])
 
     /* Construct transactions' data structure. */
     int customerID, transactionID, itemID;
-    int now_transactionID = 0;
+    int transaction_count = 0, max_itemID = 0;
     while (fscanf(in, "%d %d %d", &customerID, &transactionID, &itemID) != EOF) {
-        if (transactionID != now_transactionID) {
-            now_transactionID = transactionID;
+        if (transactionID != transaction_count) {
+            transaction_count = transactionID;
             new_transaction();
         }
+        if (itemID > max_itemID)
+            max_itemID = itemID;
         insert_item(itemID);
     }
+    // print_all_transactions();
+
+    return 0;
 }

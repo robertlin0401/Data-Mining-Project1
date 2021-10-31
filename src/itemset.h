@@ -1,6 +1,7 @@
 #ifndef ITEMSET_H
 #define ITEMSET_H
 
+#include <stdbool.h>
 #include "transaction.h"
 
 typedef struct itemset {
@@ -17,6 +18,9 @@ Itemset *new_itemset();
  * the position where it should be.
  */
 void insert_item_into_itemset(Itemset *target, int itemID);
+
+/* Check if target itemset is the subset of comparison itemset. */
+bool is_sub_itemset(Itemset *target, Itemset *comparison);
 
 /* Print out the item list of target itemset. */
 void print_itemset(Itemset *target);

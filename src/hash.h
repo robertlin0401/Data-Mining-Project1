@@ -13,6 +13,11 @@ typedef struct hash {
 /* Allocate a new hash table and initialize its content. */
 Hash *new_hash();
 
+/* Look up the hash table, find the position where the itemset
+ * belongs to, and return the pointer to that position.
+ */
+Itemset *look_up_hash(Hash *target, Itemset *itemset_ptr, int itemID_digit, int level);
+
 /* Split itemset list that reaches the maximum size, 
  * and distribute each itemset to the hash table.
  */

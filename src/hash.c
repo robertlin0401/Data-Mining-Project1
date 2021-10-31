@@ -17,6 +17,20 @@ Hash *new_hash()
     return hash_ptr;
 }
 
+Itemset *look_up_hash(Hash *target, Itemset *itemset_ptr, int itemID_digit, int level)
+{
+    Item *item_ptr = itemset_ptr->item_list_head;
+    for (int i = 1; i < level; ++i)
+        item_ptr = item_ptr->next;
+
+    int hash_value = item_ptr->itemID / pow(10, itemID_digit);
+    if (target->is_hash[hash_value]) {
+        look_up_hash((Hash *)target->ptr[hash_value], itemset_ptr, itemID_digit, level + 1);
+    } else {
+        return (Itemset *)target->ptr[hash_value];
+    }
+}
+
 void split_itemset_to_hash(Itemset *target, Hash *hash_ptr, int itemID_digit, int level)
 {
     Itemset *temp = target;

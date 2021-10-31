@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
         itemID_digit++;
     }
     generate_candidate(itemID_digit);
+    count_support_of_candidate(itemID_digit);
 
     return 0;
 }

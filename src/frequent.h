@@ -83,4 +83,31 @@ void generate_candidate(int itemID_digit)
     // print_hash(candidate_head);
 }
 
+void count_support_of_candidate(int itemID_digit)
+{
+    /* Traverse through the transactions and count the appearing time of each candidate itemset. */
+    transaction_ptr = transaction_head;
+    while (transaction_ptr) {
+        Itemset *transaction_itemset = new_itemset();
+        transaction_itemset->item_list_head = transaction_ptr->item_list_head;
+        transaction_itemset->length = transaction_ptr->length;
+
+        while (transaction_itemset->item_list_head) {
+            Itemset *candidate_itemset = look_up_hash(candidate_head, transaction_itemset, itemID_digit, 1);
+            while (candidate_itemset) {
+                if (is_sub_itemset(candidate_itemset, transaction_itemset))
+                    candidate_itemset->count++;
+                candidate_itemset = candidate_itemset->next;
+            }
+            transaction_itemset->item_list_head = transaction_itemset->item_list_head->next;
+        }
+        
+        if (transaction_ptr->next)
+            transaction_ptr = transaction_ptr->next;
+        else
+            break;
+    }
+    print_hash(candidate_head);
+}
+
 #endif

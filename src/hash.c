@@ -72,6 +72,40 @@ void insert_itemset_into_hash(Hash *target, Itemset *itemset_ptr, int itemID_dig
     }
 }
 
+Itemset *DFS_traversal(Hash *target)
+{
+    Itemset *itemset_head = NULL, *itemset_ptr = NULL, *temp;
+    for (int i = 0; i < 10; ++i) {
+        if (!target->ptr[i])
+            continue;
+
+        if (target->is_hash[i])
+            temp = DFS_traversal((Hash *)target->ptr[i]);
+        else
+            temp = (Itemset *)target->ptr[i];
+
+        if (!itemset_head)
+            itemset_head = itemset_ptr = temp;
+        else
+            itemset_ptr->next = temp;
+
+        while (itemset_ptr->next)
+            itemset_ptr = itemset_ptr->next;
+    }
+    return itemset_head;
+}
+
+void free_hash(Hash *target)
+{
+    for (int i = 0; i < 10; ++i) {
+        if (!target->ptr[i])
+            continue;
+        if (target->is_hash[i])
+            free_hash((Hash *)target->ptr[i]);
+    }
+    free(target);
+}
+
 void print_hash(Hash *target)
 {
     for (int i = 0; i < 10; ++i) {

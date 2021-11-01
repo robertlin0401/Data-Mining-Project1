@@ -19,6 +19,16 @@ Hash *candidate_head = NULL;
 
 int frequent_level = 0;
 
+void print_frequent_itemset(Frequent *target)
+{
+    Itemset *itemset_list_ptr = target->itemset_list_head;
+    while (itemset_list_ptr) {
+        print_itemset(itemset_list_ptr);
+        printf("\n");
+        itemset_list_ptr = itemset_list_ptr->next;
+    }
+}
+
 void generate_candidate(int itemID_digit)
 {
     if (frequent_level == 1) { // level-1 candidates
@@ -119,6 +129,43 @@ void count_support_of_candidate(int itemID_digit)
             break;
     }
     // print_hash(candidate_head);
+}
+
+/* Increase the frequent level and allocate a new frequent itemset data structure. */
+void new_frequent_level()
+{
+    Frequent *new_frequent = (Frequent *)malloc(sizeof(Frequent));
+    new_frequent->itemset_list_head = NULL;
+    new_frequent->level = ++frequent_level;
+    new_frequent->next = NULL;
+    if (!frequent_ptr)
+        frequent_head = frequent_ptr = new_frequent;
+    else {
+        frequent_ptr->next = new_frequent;
+        frequent_ptr = new_frequent;
+    }
+}
+
+/* Traverse through the candidate hash table and pick candidates with support value
+ * greater than minimum requirement, insert them into the frequent itemset.
+ */
+void generate_frequent_itemset(int support_count)
+{
+    Itemset *itemset_list_ptr = DFS_traversal(candidate_head);
+    Itemset *frequent_list_ptr = NULL, *infrequent_list_ptr = NULL;
+    while (itemset_list_ptr) {
+        Itemset *temp = itemset_list_ptr;
+        itemset_list_ptr = itemset_list_ptr->next;
+        temp->next = NULL;
+        if (temp->count < support_count)
+            infrequent_list_ptr = insert_itemset_into_list(temp, infrequent_list_ptr);
+        else
+            frequent_list_ptr = insert_itemset_into_list(temp, frequent_list_ptr);
+    }
+    frequent_ptr->itemset_list_head = frequent_list_ptr;
+    free_itemset_list(infrequent_list_ptr);
+    free_hash(candidate_head);
+    // print_frequent_itemset(frequent_ptr);
 }
 
 #endif

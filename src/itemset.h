@@ -19,6 +19,11 @@ Itemset *new_itemset();
  */
 void insert_item_into_itemset(Itemset *target, int itemID);
 
+/* Insert the itemset into the list at the end, then return the
+ * pointer to the list.
+ */
+Itemset *insert_itemset_into_list(Itemset *target, Itemset *list);
+
 /* Generate all subsets with specific length from target itemset,
  * then return the pointer to the list of subsets.
  */

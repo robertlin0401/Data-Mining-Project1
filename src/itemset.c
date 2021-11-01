@@ -35,6 +35,19 @@ void insert_item_into_itemset(Itemset *target, int itemID)
     target->length++;
 }
 
+Itemset *insert_itemset_into_list(Itemset *target, Itemset *list)
+{
+    if (!list)
+        return target;
+    else {
+        Itemset *temp = list;
+        while (temp->next)
+            temp = temp->next;
+        temp->next = target;
+        return list;
+    }
+}
+
 Itemset *generate_sub_itemset(Itemset *itemset_ptr, int length)
 {
     if (length == 1) {

@@ -50,9 +50,9 @@ Itemset *insert_itemset_into_list(Itemset *target, Itemset *list)
 
 Itemset *generate_sub_itemset(Itemset *itemset_ptr, int length)
 {
+    Itemset *result = NULL, *ptr = NULL;
     if (length == 1) {
         Item *item_list_ptr = itemset_ptr->item_list_head;
-        Itemset *result = NULL, *ptr = NULL;
         while (item_list_ptr) {
             Itemset *temp = new_itemset();
             insert_item_into_itemset(temp, item_list_ptr->itemID);
@@ -64,8 +64,36 @@ Itemset *generate_sub_itemset(Itemset *itemset_ptr, int length)
             }
             item_list_ptr = item_list_ptr->next;
         }
-        return result;
+    } else {
+        while (itemset_ptr->length >= length) {
+            Item *item_head = itemset_ptr->item_list_head;
+            itemset_ptr->item_list_head = itemset_ptr->item_list_head->next;
+            itemset_ptr->length--;
+
+            Itemset *target = new_itemset();
+            Item *item_ptr = item_head->next;
+            while (item_ptr) {
+                insert_item_into_itemset(target, item_ptr->itemID);
+                item_ptr = item_ptr->next;
+            }
+
+            Itemset *sub_itemset_ptr = generate_sub_itemset(target, length - 1);
+            while (sub_itemset_ptr) {
+                insert_item_into_itemset(sub_itemset_ptr, item_head->itemID);
+                if (!ptr) {
+                    result = ptr = sub_itemset_ptr;
+                } else {
+                    ptr->next = sub_itemset_ptr;
+                    ptr = sub_itemset_ptr;
+                }
+                sub_itemset_ptr = sub_itemset_ptr->next;
+            }
+
+            free_itemset_list(target);
+            free(item_head);
+        }
     }
+    return result;
 }
 
 bool is_sub_itemset(Itemset *target, Itemset *comparison)

@@ -74,7 +74,71 @@ void generate_candidate(int itemID_digit)
             free(temp);
         }
     } else {
+        Itemset *itemset_list_ptr = frequent_ptr->itemset_list_head;
+        frequent_ptr = frequent_ptr->next;
 
+        Itemset *itemset_ptr = new_itemset();
+
+        /* Traverse through the itemset list and find all unique items. */
+        while (itemset_list_ptr) {
+            Item *item_ptr = itemset_list_ptr->item_list_head;
+            while (item_ptr) {
+
+                /* Build an item list in increasing order. */
+                if (!itemset_ptr->item_list_head) {
+                    insert_item_into_itemset(itemset_ptr, item_ptr->itemID);
+                } else {
+                    if (itemset_ptr->item_list_head->itemID > item_ptr->itemID) {
+                        insert_item_into_itemset(itemset_ptr, item_ptr->itemID);
+                    } else {
+                        Item *item_list_ptr = itemset_ptr->item_list_head;
+                        bool is_unique = 1;
+                        while (item_list_ptr->next) {
+                            if (item_list_ptr->itemID == item_ptr->itemID) {
+                                is_unique = 0;
+                                break;
+                            }
+                            if (item_list_ptr->next->itemID > item_ptr->itemID)
+                                break;
+                            item_list_ptr = item_list_ptr->next;
+                        }
+                        if (item_list_ptr->itemID == item_ptr->itemID)
+                            is_unique = 0;
+                        if (is_unique)
+                            insert_item_into_itemset(itemset_ptr, item_ptr->itemID);
+                    }
+                }
+
+                item_ptr = item_ptr->next;
+            }
+            itemset_list_ptr = itemset_list_ptr->next;
+        }
+        // {   // testing
+        //     print_frequent_itemset(frequent_head);
+        //     print_itemset(itemset_ptr);
+        //     printf("\n\n");
+        // }
+
+        /* Build candidate itemsets. */
+        itemset_list_ptr = generate_sub_itemset(itemset_ptr, frequent_level);
+        free_itemset_list(itemset_ptr);
+        // {   // testing
+        //     Itemset *temp = itemset_list_ptr;
+        //     while (temp) {
+        //         print_itemset(temp);
+        //         printf("\n");
+        //         temp = temp->next;
+        //     }
+        //     printf("\n");
+        // }
+
+        /* Build the hash table based on the itemset list bulit in last step. */
+        while (itemset_list_ptr) {
+            Itemset *itemset_ptr = itemset_list_ptr;
+            itemset_list_ptr = itemset_list_ptr->next;
+            itemset_ptr->next = NULL;
+            insert_itemset_into_hash(candidate_head, itemset_ptr, itemID_digit, 1);
+        }
     }
     // print_hash(candidate_head);
 }
@@ -118,10 +182,8 @@ void new_frequent_level()
     new_frequent->next = NULL;
     if (!frequent_ptr)
         frequent_head = frequent_ptr = new_frequent;
-    else {
+    else
         frequent_ptr->next = new_frequent;
-        frequent_ptr = new_frequent;
-    }
 }
 
 void generate_frequent_itemset(int support_count)

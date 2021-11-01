@@ -7,6 +7,7 @@
 typedef struct frequent {
     Itemset *itemset_list_head;
     int level;
+    int length;
     struct frequent *next;
 } Frequent;
 

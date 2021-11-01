@@ -185,6 +185,7 @@ void new_frequent_level()
     Frequent *new_frequent = (Frequent *)malloc(sizeof(Frequent));
     new_frequent->itemset_list_head = NULL;
     new_frequent->level = ++frequent_level;
+    new_frequent->length = 0;
     new_frequent->next = NULL;
     if (!frequent_ptr)
         frequent_head = frequent_ptr = new_frequent;
@@ -196,16 +197,20 @@ void generate_frequent_itemset(int support_count)
 {
     Itemset *itemset_list_ptr = DFS_traversal(candidate_head);
     Itemset *frequent_list_ptr = NULL, *infrequent_list_ptr = NULL;
+    int length = 0;
     while (itemset_list_ptr) {
         Itemset *temp = itemset_list_ptr;
         itemset_list_ptr = itemset_list_ptr->next;
         temp->next = NULL;
         if (temp->count < support_count)
             infrequent_list_ptr = insert_itemset_into_list(temp, infrequent_list_ptr);
-        else
+        else {
             frequent_list_ptr = insert_itemset_into_list(temp, frequent_list_ptr);
+            length++;
+        }
     }
     frequent_ptr->itemset_list_head = frequent_list_ptr;
+    frequent_ptr->length = length;
     free_itemset_list(infrequent_list_ptr);
     free_hash(candidate_head);
 

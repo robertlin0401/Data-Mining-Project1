@@ -34,6 +34,9 @@ void new_frequent_level();
  */
 void generate_frequent_itemset(int support_count);
 
+/* Find the target itemset's count at specific level of frequent itemsets. */
+int find_frequent_count(Itemset *target, int level);
+
 /* Print out the itemset list in the target frequent level. */
 void print_frequent_itemset(Frequent *target);
 

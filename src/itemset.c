@@ -96,6 +96,24 @@ Itemset *generate_sub_itemset(Itemset *itemset_ptr, int length)
     return result;
 }
 
+Itemset *get_difference_itemset(Itemset *target, Itemset *comparison)
+{
+    Itemset *result = new_itemset();
+    Item *target_item = target->item_list_head;
+    Item *comparison_item = comparison->item_list_head;
+    while (target_item) {
+        if (!comparison_item)
+            insert_item_into_itemset(result, target_item->itemID);
+        else
+            if (target_item->itemID != comparison_item->itemID)
+                insert_item_into_itemset(result, target_item->itemID);
+            else
+                comparison_item = comparison_item->next;
+        target_item = target_item->next;
+    }
+    return result;
+}
+
 bool is_sub_itemset(Itemset *target, Itemset *comparison)
 {
     int length_diff = comparison->length - target->length;
@@ -140,21 +158,38 @@ void free_itemset_list(Itemset *target)
     }
 }
 
-void print_itemset(Itemset *target)
+void print_itemset(Itemset *target, FILE *out)
 {
     Item *temp = target->item_list_head;
-    if (target->count)
-        printf("%4d | ", target->count);
-    printf("{");
-    while (1) {
-        printf("%d", temp->itemID);
-        temp = temp->next;
-        if (temp)
-            printf(", ");
-        else
-            break;
+    if (out) {
+        if (target->count)
+            fprintf(out, "%4d | ", target->count);
+        fprintf(out, "{");
+        while (1) {
+            fprintf(out, "%d", temp->itemID);
+            temp = temp->next;
+            if (temp)
+                fprintf(out, ", ");
+            else
+                break;
+        }
+        fprintf(out, "}");
+        if (target->length)
+            fprintf(out, " -> %2d", target->length);
+    } else {
+        if (target->count)
+            printf("%4d | ", target->count);
+        printf("{");
+        while (1) {
+            printf("%d", temp->itemID);
+            temp = temp->next;
+            if (temp)
+                printf(", ");
+            else
+                break;
+        }
+        printf("}");
+        if (target->length)
+            printf(" -> %2d", target->length);
     }
-    printf("}");
-    if (target->length)
-        printf(" -> %2d", target->length);
 }

@@ -115,7 +115,7 @@ void generate_candidate(int itemID_digit)
         }
         // {   // testing
         //     printf("Remaining items.\n");
-        //     print_itemset(itemset_ptr);
+        //     print_itemset(itemset_ptr, NULL);
         //     printf("\n\n");
         // }
 
@@ -126,7 +126,7 @@ void generate_candidate(int itemID_digit)
         //     printf("Generate candidate itemsets.\n");
         //     Itemset *temp = itemset_list_ptr;
         //     while (temp) {
-        //         print_itemset(temp);
+        //         print_itemset(temp, NULL);
         //         printf("\n");
         //         temp = temp->next;
         //     }
@@ -218,11 +218,25 @@ void generate_frequent_itemset(int support_count)
     // print_frequent_itemset(frequent_ptr);
 }
 
+
+int find_frequent_count(Itemset *target, int level)
+{
+    Frequent *ptr = frequent_head;
+    for (int i = 1; i < level; ++i)
+        ptr = ptr->next;
+    
+    Itemset *itemset_ptr = ptr->itemset_list_head;
+    while (!is_identical_itemset(itemset_ptr, target))
+        itemset_ptr = itemset_ptr->next;
+
+    return itemset_ptr->count;
+}
+
 void print_frequent_itemset(Frequent *target)
 {
     Itemset *itemset_list_ptr = target->itemset_list_head;
     while (itemset_list_ptr) {
-        print_itemset(itemset_list_ptr);
+        print_itemset(itemset_list_ptr, NULL);
         printf("\n");
         itemset_list_ptr = itemset_list_ptr->next;
     }

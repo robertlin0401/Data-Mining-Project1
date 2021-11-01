@@ -116,7 +116,7 @@ void print_hash(Hash *target)
         else {
             Itemset *temp = (Itemset *)target->ptr[i];
             while (temp) {
-                print_itemset(temp);
+                print_itemset(temp, NULL);
                 printf("\n");
                 temp = temp->next;
             }

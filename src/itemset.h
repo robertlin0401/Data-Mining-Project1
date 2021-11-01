@@ -29,6 +29,11 @@ Itemset *insert_itemset_into_list(Itemset *target, Itemset *list);
  */
 Itemset *generate_sub_itemset(Itemset *itemset_ptr, int length);
 
+/* Get the difference set of two itemsets, with the condition that
+ * the comparison itemset is the subset of the target itemset.
+ */
+Itemset *get_difference_itemset(Itemset *target, Itemset *comparison);
+
 /* Check if target itemset is the subset of comparison itemset. */
 bool is_sub_itemset(Itemset *target, Itemset *comparison);
 
@@ -39,6 +44,6 @@ bool is_identical_itemset(Itemset *target, Itemset *comparison);
 void free_itemset_list(Itemset *target);
 
 /* Print out the item list of target itemset. */
-void print_itemset(Itemset *target);
+void print_itemset(Itemset *target, FILE *out);
 
 #endif

@@ -54,13 +54,13 @@ Itemset *generate_sub_itemset(Itemset *itemset_ptr, int length)
     if (length == 1) {
         Item *item_list_ptr = itemset_ptr->item_list_head;
         while (item_list_ptr) {
-            Itemset *temp = new_itemset();
-            insert_item_into_itemset(temp, item_list_ptr->itemID);
+            Itemset *sub_itemset_ptr = new_itemset();
+            insert_item_into_itemset(sub_itemset_ptr, item_list_ptr->itemID);
             if (!ptr) {
-                result = ptr = temp;
+                result = ptr = sub_itemset_ptr;
             } else {
-                ptr->next = temp;
-                ptr = temp;
+                ptr->next = sub_itemset_ptr;
+                ptr = sub_itemset_ptr;
             }
             item_list_ptr = item_list_ptr->next;
         }

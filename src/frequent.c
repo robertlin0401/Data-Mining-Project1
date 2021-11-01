@@ -150,10 +150,13 @@ void count_support_of_candidate(int itemID_digit)
     transaction_ptr = transaction_head;
     while (transaction_ptr) {
         Itemset *temp = new_itemset();
-        temp->item_list_head = transaction_ptr->item_list_head;
-        temp->length = transaction_ptr->length;
+        Item *item_ptr = transaction_ptr->item_list_head;
+        while (item_ptr) {
+            insert_item_into_itemset(temp, item_ptr->itemID);
+            item_ptr = item_ptr->next;
+        }
         Itemset *transaction_sub_itemset = generate_sub_itemset(temp, frequent_level);
-        free(temp);
+        free_itemset_list(temp);
 
         Itemset *transaction_sub_ptr = transaction_sub_itemset;
         while (transaction_sub_ptr) {

@@ -1,5 +1,5 @@
 CC	 := gcc
-obj  := hash.o itemset.o transaction.o apriori.o
+obj  := hash.o itemset.o transaction.o apriori.o frequent.o
 flag := -Wall
 
 all: apriori

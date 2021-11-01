@@ -39,8 +39,10 @@ int main(int argc, char *argv[])
         temp /= 10;
         itemID_digit++;
     }
+    new_frequent_level();
     generate_candidate(itemID_digit);
     count_support_of_candidate(itemID_digit);
+    generate_frequent_itemset(support_count);
 
     return 0;
 }

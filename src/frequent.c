@@ -114,7 +114,7 @@ void generate_candidate(int itemID_digit)
             itemset_list_ptr = itemset_list_ptr->next;
         }
         // {   // testing
-        //     print_frequent_itemset(frequent_head);
+        //     printf("Remaining items.\n");
         //     print_itemset(itemset_ptr);
         //     printf("\n\n");
         // }
@@ -123,6 +123,7 @@ void generate_candidate(int itemID_digit)
         itemset_list_ptr = generate_sub_itemset(itemset_ptr, frequent_level);
         free_itemset_list(itemset_ptr);
         // {   // testing
+        //     printf("Generate candidate itemsets.\n");
         //     Itemset *temp = itemset_list_ptr;
         //     while (temp) {
         //         print_itemset(temp);
@@ -140,6 +141,7 @@ void generate_candidate(int itemID_digit)
             insert_itemset_into_hash(candidate_head, itemset_ptr, itemID_digit, 1);
         }
     }
+    // printf("Generate hash table.\n");
     // print_hash(candidate_head);
 }
 
@@ -171,6 +173,7 @@ void count_support_of_candidate(int itemID_digit)
         else
             break;
     }
+    // printf("Count supports of candidates.\n");
     // print_hash(candidate_head);
 }
 
@@ -202,6 +205,8 @@ void generate_frequent_itemset(int support_count)
     frequent_ptr->itemset_list_head = frequent_list_ptr;
     free_itemset_list(infrequent_list_ptr);
     free_hash(candidate_head);
+
+    // printf("Generate frequent itemsets.\n");
     // print_frequent_itemset(frequent_ptr);
 }
 

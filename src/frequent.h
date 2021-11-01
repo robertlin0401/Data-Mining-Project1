@@ -17,11 +17,11 @@ Frequent *frequent_ptr = NULL;
 
 Hash *candidate_head = NULL;
 
-int frequent_level = 1;
+int frequent_level = 0;
 
 void generate_candidate(int itemID_digit)
 {
-    if (!candidate_head) { // level-1 candidates
+    if (frequent_level == 1) { // level-1 candidates
         candidate_head = new_hash();
         Item *item_list_head = NULL;
 

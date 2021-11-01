@@ -59,4 +59,5 @@ void print_all_transactions()
         else
             break;
     }
+    printf("\n");
 }

@@ -123,4 +123,5 @@ void print_hash(Hash *target)
             printf("\n");
         }
     }
+    printf("\n");
 }

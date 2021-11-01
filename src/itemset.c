@@ -115,7 +115,8 @@ void free_itemset_list(Itemset *target)
 void print_itemset(Itemset *target)
 {
     Item *temp = target->item_list_head;
-    printf("%4d | ", target->count);
+    if (target->count)
+        printf("%4d | ", target->count);
     printf("{");
     while (1) {
         printf("%d", temp->itemID);
@@ -126,4 +127,6 @@ void print_itemset(Itemset *target)
             break;
     }
     printf("}");
+    if (target->length)
+        printf(" -> %2d", target->length);
 }

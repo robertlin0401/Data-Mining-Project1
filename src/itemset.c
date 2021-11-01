@@ -84,6 +84,21 @@ bool is_identical_itemset(Itemset *target, Itemset *comparison)
     return target->length == comparison->length && is_sub_itemset(target, comparison);
 }
 
+void free_itemset_list(Itemset *target)
+{
+    while (target) {
+        Item *item_list_head = target->item_list_head;
+        while (item_list_head) {
+            Item *temp = item_list_head->next;
+            free(item_list_head);
+            item_list_head = temp;
+        }
+        Itemset *temp = target->next;
+        free(target);
+        target = temp;
+    }
+}
+
 void print_itemset(Itemset *target)
 {
     Item *temp = target->item_list_head;

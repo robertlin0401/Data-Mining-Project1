@@ -111,17 +111,7 @@ void count_support_of_candidate(int itemID_digit)
             transaction_sub_ptr = transaction_sub_ptr->next;
         }
         
-        while (transaction_sub_itemset) {
-            Item *item_list_head = transaction_sub_itemset->item_list_head;
-            while (item_list_head) {
-                Item *temp = item_list_head->next;
-                free(item_list_head);
-                item_list_head = temp;
-            }
-            Itemset *temp = transaction_sub_itemset->next;
-            free(transaction_sub_itemset);
-            transaction_sub_itemset = temp;
-        }
+        free_itemset_list(transaction_sub_itemset);
 
         if (transaction_ptr->next)
             transaction_ptr = transaction_ptr->next;

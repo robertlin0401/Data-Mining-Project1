@@ -30,6 +30,9 @@ bool is_sub_itemset(Itemset *target, Itemset *comparison);
 /* Check if target itemset is identical to comparison itemset. */
 bool is_identical_itemset(Itemset *target, Itemset *comparison);
 
+/* Free the itemset list and the item list in each itemset. */
+void free_itemset_list(Itemset *target);
+
 /* Print out the item list of target itemset. */
 void print_itemset(Itemset *target);
 

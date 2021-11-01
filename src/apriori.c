@@ -32,7 +32,6 @@ int main(int argc, char *argv[])
      *                    Apriori Algorithm
      *============================================================
      */
-    /* Find frequent itemsets. */
     int support_count = ceil(transaction_count * support);
     int itemID_digit = 0, temp = max_itemID;
     while (temp / 10 > 0) {
@@ -47,7 +46,7 @@ int main(int argc, char *argv[])
         if (frequent_ptr->length <= 1)
             break;
     }
-    
+    generate_rule(confidence, out);
 
     return 0;
 }

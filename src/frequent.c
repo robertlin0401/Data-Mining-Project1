@@ -218,6 +218,56 @@ void generate_frequent_itemset(int support_count)
     // print_frequent_itemset(frequent_ptr);
 }
 
+void generate_rule(float min_confidence, FILE *out)
+{
+    frequent_ptr = frequent_head->next;
+    while (frequent_ptr) {
+        Itemset *itemset_ptr = frequent_ptr->itemset_list_head;
+        while (itemset_ptr) {
+            Itemset *target = new_itemset();
+            Item *item_ptr = itemset_ptr->item_list_head;
+            while (item_ptr) {
+                insert_item_into_itemset(target, item_ptr->itemID);
+                item_ptr = item_ptr->next;
+            }
+
+            Itemset *sub_itemset_head = NULL, *sub_itemset_ptr = NULL;
+            for (int i = 1; i < frequent_ptr->level; ++i) {
+                if (!sub_itemset_head)
+                    sub_itemset_head = sub_itemset_ptr = generate_sub_itemset(target, i);
+                else
+                    sub_itemset_ptr->next = generate_sub_itemset(target, i);
+                while (sub_itemset_ptr->next)
+                    sub_itemset_ptr = sub_itemset_ptr->next;
+            }
+            free_itemset_list(target);
+
+            sub_itemset_ptr = sub_itemset_head;
+            while (sub_itemset_ptr) {
+                int support = find_frequent_count(sub_itemset_ptr, sub_itemset_ptr->length);
+                float confidence = itemset_ptr->count / (float)support;
+                if (confidence >= min_confidence) {
+                    Itemset *difference = get_difference_itemset(itemset_ptr, sub_itemset_ptr);
+                    sub_itemset_ptr->length = difference->length = 0;
+                    print_itemset(sub_itemset_ptr, out);
+                    fprintf(out, " -> ");
+                    print_itemset(difference, out);
+                    fprintf(out, " | ");
+                    fprintf(out, "confidence=%.4f, ", confidence);
+                    fprintf(out, "support=%d\n", itemset_ptr->count);
+                    free_itemset_list(difference);
+                }
+                Itemset *temp = sub_itemset_ptr;
+                sub_itemset_ptr = sub_itemset_ptr->next;
+                temp->next = NULL;
+                free_itemset_list(temp);
+            }
+            
+            itemset_ptr = itemset_ptr->next;
+        }
+        frequent_ptr = frequent_ptr->next;
+    }
+}
 
 int find_frequent_count(Itemset *target, int level)
 {

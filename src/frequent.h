@@ -34,6 +34,9 @@ void new_frequent_level();
  */
 void generate_frequent_itemset(int support_count);
 
+/* Generate association rules based on the frequent itemsets. */
+void generate_rule(float min_confidence, FILE *out);
+
 /* Find the target itemset's count at specific level of frequent itemsets. */
 int find_frequent_count(Itemset *target, int level);
 

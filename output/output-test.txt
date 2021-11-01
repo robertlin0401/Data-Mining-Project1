@@ -1,0 +1,198 @@
+{8} -> {9} | confidence=0.7500, support=3
+{9} -> {8} | confidence=0.6000, support=3
+{4} -> {21} | confidence=0.8000, support=4
+{21} -> {4} | confidence=1.0000, support=4
+{8} -> {25} | confidence=0.7500, support=3
+{25} -> {8} | confidence=0.7500, support=3
+{3} -> {33} | confidence=0.6000, support=3
+{33} -> {3} | confidence=0.7500, support=3
+{3} -> {36} | confidence=0.6000, support=3
+{36} -> {3} | confidence=0.5000, support=3
+{3} -> {39} | confidence=0.6000, support=3
+{39} -> {3} | confidence=1.0000, support=3
+{4} -> {36} | confidence=0.8000, support=4
+{36} -> {4} | confidence=0.6667, support=4
+{4} -> {38} | confidence=0.8000, support=4
+{38} -> {4} | confidence=0.8000, support=4
+{8} -> {36} | confidence=0.7500, support=3
+{36} -> {8} | confidence=0.5000, support=3
+{8} -> {38} | confidence=0.7500, support=3
+{38} -> {8} | confidence=0.6000, support=3
+{4} -> {48} | confidence=0.6000, support=3
+{48} -> {4} | confidence=0.5000, support=3
+{8} -> {48} | confidence=1.0000, support=4
+{48} -> {8} | confidence=0.6667, support=4
+{9} -> {40} | confidence=0.6000, support=3
+{40} -> {9} | confidence=0.7500, support=3
+{9} -> {48} | confidence=0.6000, support=3
+{48} -> {9} | confidence=0.5000, support=3
+{17} -> {36} | confidence=0.7500, support=3
+{36} -> {17} | confidence=0.5000, support=3
+{17} -> {48} | confidence=0.7500, support=3
+{48} -> {17} | confidence=0.5000, support=3
+{21} -> {36} | confidence=0.7500, support=3
+{36} -> {21} | confidence=0.5000, support=3
+{21} -> {38} | confidence=0.7500, support=3
+{38} -> {21} | confidence=0.6000, support=3
+{25} -> {36} | confidence=0.7500, support=3
+{36} -> {25} | confidence=0.5000, support=3
+{25} -> {38} | confidence=0.7500, support=3
+{38} -> {25} | confidence=0.6000, support=3
+{25} -> {40} | confidence=0.7500, support=3
+{40} -> {25} | confidence=0.7500, support=3
+{25} -> {48} | confidence=1.0000, support=4
+{48} -> {25} | confidence=0.6667, support=4
+{33} -> {39} | confidence=0.7500, support=3
+{39} -> {33} | confidence=1.0000, support=3
+{33} -> {42} | confidence=0.7500, support=3
+{42} -> {33} | confidence=0.7500, support=3
+{34} -> {36} | confidence=1.0000, support=3
+{36} -> {34} | confidence=0.5000, support=3
+{34} -> {48} | confidence=1.0000, support=3
+{48} -> {34} | confidence=0.5000, support=3
+{36} -> {38} | confidence=0.6667, support=4
+{38} -> {36} | confidence=0.8000, support=4
+{36} -> {48} | confidence=0.8333, support=5
+{48} -> {36} | confidence=0.8333, support=5
+{38} -> {48} | confidence=0.8000, support=4
+{48} -> {38} | confidence=0.6667, support=4
+{40} -> {48} | confidence=0.7500, support=3
+{48} -> {40} | confidence=0.5000, support=3
+{8} -> {9, 48} | confidence=0.7500, support=3
+{9} -> {8, 48} | confidence=0.6000, support=3
+{48} -> {8, 9} | confidence=0.5000, support=3
+{8, 9} -> {48} | confidence=1.0000, support=3
+{8, 48} -> {9} | confidence=0.7500, support=3
+{9, 48} -> {8} | confidence=1.0000, support=3
+{4} -> {21, 36} | confidence=0.6000, support=3
+{21} -> {4, 36} | confidence=0.7500, support=3
+{36} -> {4, 21} | confidence=0.5000, support=3
+{4, 21} -> {36} | confidence=0.7500, support=3
+{4, 36} -> {21} | confidence=0.7500, support=3
+{21, 36} -> {4} | confidence=1.0000, support=3
+{4} -> {21, 38} | confidence=0.6000, support=3
+{21} -> {4, 38} | confidence=0.7500, support=3
+{38} -> {4, 21} | confidence=0.6000, support=3
+{4, 21} -> {38} | confidence=0.7500, support=3
+{4, 38} -> {21} | confidence=0.7500, support=3
+{21, 38} -> {4} | confidence=1.0000, support=3
+{8} -> {25, 38} | confidence=0.7500, support=3
+{25} -> {8, 38} | confidence=0.7500, support=3
+{38} -> {8, 25} | confidence=0.6000, support=3
+{8, 25} -> {38} | confidence=1.0000, support=3
+{8, 38} -> {25} | confidence=1.0000, support=3
+{25, 38} -> {8} | confidence=1.0000, support=3
+{8} -> {25, 48} | confidence=0.7500, support=3
+{25} -> {8, 48} | confidence=0.7500, support=3
+{48} -> {8, 25} | confidence=0.5000, support=3
+{8, 25} -> {48} | confidence=1.0000, support=3
+{8, 48} -> {25} | confidence=0.7500, support=3
+{25, 48} -> {8} | confidence=0.7500, support=3
+{3} -> {33, 39} | confidence=0.6000, support=3
+{33} -> {3, 39} | confidence=0.7500, support=3
+{39} -> {3, 33} | confidence=1.0000, support=3
+{3, 33} -> {39} | confidence=1.0000, support=3
+{3, 39} -> {33} | confidence=1.0000, support=3
+{33, 39} -> {3} | confidence=1.0000, support=3
+{4} -> {36, 38} | confidence=0.8000, support=4
+{36} -> {4, 38} | confidence=0.6667, support=4
+{38} -> {4, 36} | confidence=0.8000, support=4
+{4, 36} -> {38} | confidence=1.0000, support=4
+{4, 38} -> {36} | confidence=1.0000, support=4
+{36, 38} -> {4} | confidence=1.0000, support=4
+{4} -> {36, 48} | confidence=0.6000, support=3
+{36} -> {4, 48} | confidence=0.5000, support=3
+{48} -> {4, 36} | confidence=0.5000, support=3
+{4, 36} -> {48} | confidence=0.7500, support=3
+{4, 48} -> {36} | confidence=1.0000, support=3
+{36, 48} -> {4} | confidence=0.6000, support=3
+{4} -> {38, 48} | confidence=0.6000, support=3
+{38} -> {4, 48} | confidence=0.6000, support=3
+{48} -> {4, 38} | confidence=0.5000, support=3
+{4, 38} -> {48} | confidence=0.7500, support=3
+{4, 48} -> {38} | confidence=1.0000, support=3
+{38, 48} -> {4} | confidence=0.7500, support=3
+{8} -> {36, 48} | confidence=0.7500, support=3
+{36} -> {8, 48} | confidence=0.5000, support=3
+{48} -> {8, 36} | confidence=0.5000, support=3
+{8, 36} -> {48} | confidence=1.0000, support=3
+{8, 48} -> {36} | confidence=0.7500, support=3
+{36, 48} -> {8} | confidence=0.6000, support=3
+{8} -> {38, 48} | confidence=0.7500, support=3
+{38} -> {8, 48} | confidence=0.6000, support=3
+{48} -> {8, 38} | confidence=0.5000, support=3
+{8, 38} -> {48} | confidence=1.0000, support=3
+{8, 48} -> {38} | confidence=0.7500, support=3
+{38, 48} -> {8} | confidence=0.7500, support=3
+{17} -> {36, 48} | confidence=0.7500, support=3
+{36} -> {17, 48} | confidence=0.5000, support=3
+{48} -> {17, 36} | confidence=0.5000, support=3
+{17, 36} -> {48} | confidence=1.0000, support=3
+{17, 48} -> {36} | confidence=1.0000, support=3
+{36, 48} -> {17} | confidence=0.6000, support=3
+{21} -> {36, 38} | confidence=0.7500, support=3
+{36} -> {21, 38} | confidence=0.5000, support=3
+{38} -> {21, 36} | confidence=0.6000, support=3
+{21, 36} -> {38} | confidence=1.0000, support=3
+{21, 38} -> {36} | confidence=1.0000, support=3
+{36, 38} -> {21} | confidence=0.7500, support=3
+{25} -> {36, 48} | confidence=0.7500, support=3
+{36} -> {25, 48} | confidence=0.5000, support=3
+{48} -> {25, 36} | confidence=0.5000, support=3
+{25, 36} -> {48} | confidence=1.0000, support=3
+{25, 48} -> {36} | confidence=0.7500, support=3
+{36, 48} -> {25} | confidence=0.6000, support=3
+{25} -> {38, 48} | confidence=0.7500, support=3
+{38} -> {25, 48} | confidence=0.6000, support=3
+{48} -> {25, 38} | confidence=0.5000, support=3
+{25, 38} -> {48} | confidence=1.0000, support=3
+{25, 48} -> {38} | confidence=0.7500, support=3
+{38, 48} -> {25} | confidence=0.7500, support=3
+{25} -> {40, 48} | confidence=0.7500, support=3
+{40} -> {25, 48} | confidence=0.7500, support=3
+{48} -> {25, 40} | confidence=0.5000, support=3
+{25, 40} -> {48} | confidence=1.0000, support=3
+{25, 48} -> {40} | confidence=0.7500, support=3
+{40, 48} -> {25} | confidence=1.0000, support=3
+{34} -> {36, 48} | confidence=1.0000, support=3
+{36} -> {34, 48} | confidence=0.5000, support=3
+{48} -> {34, 36} | confidence=0.5000, support=3
+{34, 36} -> {48} | confidence=1.0000, support=3
+{34, 48} -> {36} | confidence=1.0000, support=3
+{36, 48} -> {34} | confidence=0.6000, support=3
+{36} -> {38, 48} | confidence=0.5000, support=3
+{38} -> {36, 48} | confidence=0.6000, support=3
+{48} -> {36, 38} | confidence=0.5000, support=3
+{36, 38} -> {48} | confidence=0.7500, support=3
+{36, 48} -> {38} | confidence=0.6000, support=3
+{38, 48} -> {36} | confidence=0.7500, support=3
+{4} -> {21, 36, 38} | confidence=0.6000, support=3
+{21} -> {4, 36, 38} | confidence=0.7500, support=3
+{36} -> {4, 21, 38} | confidence=0.5000, support=3
+{38} -> {4, 21, 36} | confidence=0.6000, support=3
+{4, 21} -> {36, 38} | confidence=0.7500, support=3
+{4, 36} -> {21, 38} | confidence=0.7500, support=3
+{4, 38} -> {21, 36} | confidence=0.7500, support=3
+{21, 36} -> {4, 38} | confidence=1.0000, support=3
+{21, 38} -> {4, 36} | confidence=1.0000, support=3
+{36, 38} -> {4, 21} | confidence=0.7500, support=3
+{8} -> {25, 38, 48} | confidence=0.7500, support=3
+{25} -> {8, 38, 48} | confidence=0.7500, support=3
+{38} -> {8, 25, 48} | confidence=0.6000, support=3
+{48} -> {8, 25, 38} | confidence=0.5000, support=3
+{8, 25} -> {38, 48} | confidence=1.0000, support=3
+{8, 38} -> {25, 48} | confidence=1.0000, support=3
+{8, 48} -> {25, 38} | confidence=0.7500, support=3
+{25, 38} -> {8, 48} | confidence=1.0000, support=3
+{25, 48} -> {8, 38} | confidence=0.7500, support=3
+{38, 48} -> {8, 25} | confidence=0.7500, support=3
+{4} -> {36, 38, 48} | confidence=0.6000, support=3
+{36} -> {4, 38, 48} | confidence=0.5000, support=3
+{38} -> {4, 36, 48} | confidence=0.6000, support=3
+{48} -> {4, 36, 38} | confidence=0.5000, support=3
+{4, 36} -> {38, 48} | confidence=0.7500, support=3
+{4, 38} -> {36, 48} | confidence=0.7500, support=3
+{4, 48} -> {36, 38} | confidence=1.0000, support=3
+{36, 38} -> {4, 48} | confidence=0.7500, support=3
+{36, 48} -> {4, 38} | confidence=0.6000, support=3
+{38, 48} -> {4, 36} | confidence=0.7500, support=3

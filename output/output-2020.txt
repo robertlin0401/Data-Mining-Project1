@@ -1,0 +1,307 @@
+{3} -> {111} | confidence=0.9559, support=325
+{111} -> {3} | confidence=0.9701, support=325
+{3} -> {451} | confidence=0.9559, support=325
+{451} -> {3} | confidence=0.9701, support=325
+{3} -> {487} | confidence=0.9529, support=324
+{487} -> {3} | confidence=0.9672, support=324
+{3} -> {488} | confidence=0.9588, support=326
+{488} -> {3} | confidence=0.9760, support=326
+{3} -> {523} | confidence=0.9794, support=333
+{523} -> {3} | confidence=0.9765, support=333
+{111} -> {451} | confidence=0.9612, support=322
+{451} -> {111} | confidence=0.9612, support=322
+{111} -> {487} | confidence=0.9582, support=321
+{487} -> {111} | confidence=0.9582, support=321
+{111} -> {488} | confidence=0.9522, support=319
+{488} -> {111} | confidence=0.9551, support=319
+{111} -> {523} | confidence=0.9701, support=325
+{523} -> {111} | confidence=0.9531, support=325
+{451} -> {487} | confidence=0.9552, support=320
+{487} -> {451} | confidence=0.9552, support=320
+{451} -> {488} | confidence=0.9522, support=319
+{488} -> {451} | confidence=0.9551, support=319
+{451} -> {523} | confidence=0.9731, support=326
+{523} -> {451} | confidence=0.9560, support=326
+{487} -> {488} | confidence=0.9493, support=318
+{488} -> {487} | confidence=0.9521, support=318
+{487} -> {523} | confidence=0.9672, support=324
+{523} -> {487} | confidence=0.9501, support=324
+{488} -> {523} | confidence=0.9760, support=326
+{523} -> {488} | confidence=0.9560, support=326
+{3} -> {111, 451} | confidence=0.9235, support=314
+{111} -> {3, 451} | confidence=0.9373, support=314
+{451} -> {3, 111} | confidence=0.9373, support=314
+{3, 111} -> {451} | confidence=0.9662, support=314
+{3, 451} -> {111} | confidence=0.9662, support=314
+{111, 451} -> {3} | confidence=0.9752, support=314
+{3} -> {111, 487} | confidence=0.9206, support=313
+{111} -> {3, 487} | confidence=0.9343, support=313
+{487} -> {3, 111} | confidence=0.9343, support=313
+{3, 111} -> {487} | confidence=0.9631, support=313
+{3, 487} -> {111} | confidence=0.9660, support=313
+{111, 487} -> {3} | confidence=0.9751, support=313
+{3} -> {111, 488} | confidence=0.9176, support=312
+{111} -> {3, 488} | confidence=0.9313, support=312
+{488} -> {3, 111} | confidence=0.9341, support=312
+{3, 111} -> {488} | confidence=0.9600, support=312
+{3, 488} -> {111} | confidence=0.9571, support=312
+{111, 488} -> {3} | confidence=0.9781, support=312
+{3} -> {111, 523} | confidence=0.9353, support=318
+{111} -> {3, 523} | confidence=0.9493, support=318
+{523} -> {3, 111} | confidence=0.9326, support=318
+{3, 111} -> {523} | confidence=0.9785, support=318
+{3, 523} -> {111} | confidence=0.9550, support=318
+{111, 523} -> {3} | confidence=0.9785, support=318
+{3} -> {451, 487} | confidence=0.9176, support=312
+{451} -> {3, 487} | confidence=0.9313, support=312
+{487} -> {3, 451} | confidence=0.9313, support=312
+{3, 451} -> {487} | confidence=0.9600, support=312
+{3, 487} -> {451} | confidence=0.9630, support=312
+{451, 487} -> {3} | confidence=0.9750, support=312
+{3} -> {451, 488} | confidence=0.9147, support=311
+{451} -> {3, 488} | confidence=0.9284, support=311
+{488} -> {3, 451} | confidence=0.9311, support=311
+{3, 451} -> {488} | confidence=0.9569, support=311
+{3, 488} -> {451} | confidence=0.9540, support=311
+{451, 488} -> {3} | confidence=0.9749, support=311
+{3} -> {451, 523} | confidence=0.9353, support=318
+{451} -> {3, 523} | confidence=0.9493, support=318
+{523} -> {3, 451} | confidence=0.9326, support=318
+{3, 451} -> {523} | confidence=0.9785, support=318
+{3, 523} -> {451} | confidence=0.9550, support=318
+{451, 523} -> {3} | confidence=0.9755, support=318
+{3} -> {487, 488} | confidence=0.9147, support=311
+{487} -> {3, 488} | confidence=0.9284, support=311
+{488} -> {3, 487} | confidence=0.9311, support=311
+{3, 487} -> {488} | confidence=0.9599, support=311
+{3, 488} -> {487} | confidence=0.9540, support=311
+{487, 488} -> {3} | confidence=0.9780, support=311
+{3} -> {487, 523} | confidence=0.9324, support=317
+{487} -> {3, 523} | confidence=0.9463, support=317
+{523} -> {3, 487} | confidence=0.9296, support=317
+{3, 487} -> {523} | confidence=0.9784, support=317
+{3, 523} -> {487} | confidence=0.9520, support=317
+{487, 523} -> {3} | confidence=0.9784, support=317
+{3} -> {488, 523} | confidence=0.9382, support=319
+{488} -> {3, 523} | confidence=0.9551, support=319
+{523} -> {3, 488} | confidence=0.9355, support=319
+{3, 488} -> {523} | confidence=0.9785, support=319
+{3, 523} -> {488} | confidence=0.9580, support=319
+{488, 523} -> {3} | confidence=0.9785, support=319
+{111} -> {451, 487} | confidence=0.9224, support=309
+{451} -> {111, 487} | confidence=0.9224, support=309
+{487} -> {111, 451} | confidence=0.9224, support=309
+{111, 451} -> {487} | confidence=0.9596, support=309
+{111, 487} -> {451} | confidence=0.9626, support=309
+{451, 487} -> {111} | confidence=0.9656, support=309
+{111} -> {451, 488} | confidence=0.9194, support=308
+{451} -> {111, 488} | confidence=0.9194, support=308
+{488} -> {111, 451} | confidence=0.9222, support=308
+{111, 451} -> {488} | confidence=0.9565, support=308
+{111, 488} -> {451} | confidence=0.9655, support=308
+{451, 488} -> {111} | confidence=0.9655, support=308
+{111} -> {451, 523} | confidence=0.9373, support=314
+{451} -> {111, 523} | confidence=0.9373, support=314
+{523} -> {111, 451} | confidence=0.9208, support=314
+{111, 451} -> {523} | confidence=0.9752, support=314
+{111, 523} -> {451} | confidence=0.9662, support=314
+{451, 523} -> {111} | confidence=0.9632, support=314
+{111} -> {487, 488} | confidence=0.9164, support=307
+{487} -> {111, 488} | confidence=0.9164, support=307
+{488} -> {111, 487} | confidence=0.9192, support=307
+{111, 487} -> {488} | confidence=0.9564, support=307
+{111, 488} -> {487} | confidence=0.9624, support=307
+{487, 488} -> {111} | confidence=0.9654, support=307
+{111} -> {487, 523} | confidence=0.9313, support=312
+{487} -> {111, 523} | confidence=0.9313, support=312
+{523} -> {111, 487} | confidence=0.9150, support=312
+{111, 487} -> {523} | confidence=0.9720, support=312
+{111, 523} -> {487} | confidence=0.9600, support=312
+{487, 523} -> {111} | confidence=0.9630, support=312
+{111} -> {488, 523} | confidence=0.9284, support=311
+{488} -> {111, 523} | confidence=0.9311, support=311
+{523} -> {111, 488} | confidence=0.9120, support=311
+{111, 488} -> {523} | confidence=0.9749, support=311
+{111, 523} -> {488} | confidence=0.9569, support=311
+{488, 523} -> {111} | confidence=0.9540, support=311
+{451} -> {487, 488} | confidence=0.9134, support=306
+{487} -> {451, 488} | confidence=0.9134, support=306
+{488} -> {451, 487} | confidence=0.9162, support=306
+{451, 487} -> {488} | confidence=0.9563, support=306
+{451, 488} -> {487} | confidence=0.9592, support=306
+{487, 488} -> {451} | confidence=0.9623, support=306
+{451} -> {487, 523} | confidence=0.9313, support=312
+{487} -> {451, 523} | confidence=0.9313, support=312
+{523} -> {451, 487} | confidence=0.9150, support=312
+{451, 487} -> {523} | confidence=0.9750, support=312
+{451, 523} -> {487} | confidence=0.9571, support=312
+{487, 523} -> {451} | confidence=0.9630, support=312
+{451} -> {488, 523} | confidence=0.9284, support=311
+{488} -> {451, 523} | confidence=0.9311, support=311
+{523} -> {451, 488} | confidence=0.9120, support=311
+{451, 488} -> {523} | confidence=0.9749, support=311
+{451, 523} -> {488} | confidence=0.9540, support=311
+{488, 523} -> {451} | confidence=0.9540, support=311
+{487} -> {488, 523} | confidence=0.9284, support=311
+{488} -> {487, 523} | confidence=0.9311, support=311
+{523} -> {487, 488} | confidence=0.9120, support=311
+{487, 488} -> {523} | confidence=0.9780, support=311
+{487, 523} -> {488} | confidence=0.9599, support=311
+{488, 523} -> {487} | confidence=0.9540, support=311
+{111} -> {3, 451, 487} | confidence=0.9045, support=303
+{451} -> {3, 111, 487} | confidence=0.9045, support=303
+{487} -> {3, 111, 451} | confidence=0.9045, support=303
+{3, 111} -> {451, 487} | confidence=0.9323, support=303
+{3, 451} -> {111, 487} | confidence=0.9323, support=303
+{3, 487} -> {111, 451} | confidence=0.9352, support=303
+{111, 451} -> {3, 487} | confidence=0.9410, support=303
+{111, 487} -> {3, 451} | confidence=0.9439, support=303
+{451, 487} -> {3, 111} | confidence=0.9469, support=303
+{488} -> {3, 111, 451} | confidence=0.9012, support=301
+{3, 111} -> {451, 488} | confidence=0.9262, support=301
+{3, 451} -> {111, 488} | confidence=0.9262, support=301
+{3, 488} -> {111, 451} | confidence=0.9233, support=301
+{111, 451} -> {3, 488} | confidence=0.9348, support=301
+{111, 488} -> {3, 451} | confidence=0.9436, support=301
+{451, 488} -> {3, 111} | confidence=0.9436, support=301
+{3} -> {111, 451, 523} | confidence=0.9029, support=307
+{111} -> {3, 451, 523} | confidence=0.9164, support=307
+{451} -> {3, 111, 523} | confidence=0.9164, support=307
+{523} -> {3, 111, 451} | confidence=0.9003, support=307
+{3, 111} -> {451, 523} | confidence=0.9446, support=307
+{3, 451} -> {111, 523} | confidence=0.9446, support=307
+{3, 523} -> {111, 451} | confidence=0.9219, support=307
+{111, 451} -> {3, 523} | confidence=0.9534, support=307
+{111, 523} -> {3, 451} | confidence=0.9446, support=307
+{451, 523} -> {3, 111} | confidence=0.9417, support=307
+{488} -> {3, 111, 487} | confidence=0.9012, support=301
+{3, 111} -> {487, 488} | confidence=0.9262, support=301
+{3, 487} -> {111, 488} | confidence=0.9290, support=301
+{3, 488} -> {111, 487} | confidence=0.9233, support=301
+{111, 487} -> {3, 488} | confidence=0.9377, support=301
+{111, 488} -> {3, 487} | confidence=0.9436, support=301
+{487, 488} -> {3, 111} | confidence=0.9465, support=301
+{3} -> {111, 487, 523} | confidence=0.9000, support=306
+{111} -> {3, 487, 523} | confidence=0.9134, support=306
+{487} -> {3, 111, 523} | confidence=0.9134, support=306
+{3, 111} -> {487, 523} | confidence=0.9415, support=306
+{3, 487} -> {111, 523} | confidence=0.9444, support=306
+{3, 523} -> {111, 487} | confidence=0.9189, support=306
+{111, 487} -> {3, 523} | confidence=0.9533, support=306
+{111, 523} -> {3, 487} | confidence=0.9415, support=306
+{487, 523} -> {3, 111} | confidence=0.9444, support=306
+{111} -> {3, 488, 523} | confidence=0.9104, support=305
+{488} -> {3, 111, 523} | confidence=0.9132, support=305
+{3, 111} -> {488, 523} | confidence=0.9385, support=305
+{3, 488} -> {111, 523} | confidence=0.9356, support=305
+{3, 523} -> {111, 488} | confidence=0.9159, support=305
+{111, 488} -> {3, 523} | confidence=0.9561, support=305
+{111, 523} -> {3, 488} | confidence=0.9385, support=305
+{488, 523} -> {3, 111} | confidence=0.9356, support=305
+{3, 451} -> {487, 488} | confidence=0.9200, support=299
+{3, 487} -> {451, 488} | confidence=0.9228, support=299
+{3, 488} -> {451, 487} | confidence=0.9172, support=299
+{451, 487} -> {3, 488} | confidence=0.9344, support=299
+{451, 488} -> {3, 487} | confidence=0.9373, support=299
+{487, 488} -> {3, 451} | confidence=0.9403, support=299
+{451} -> {3, 487, 523} | confidence=0.9104, support=305
+{487} -> {3, 451, 523} | confidence=0.9104, support=305
+{3, 451} -> {487, 523} | confidence=0.9385, support=305
+{3, 487} -> {451, 523} | confidence=0.9414, support=305
+{3, 523} -> {451, 487} | confidence=0.9159, support=305
+{451, 487} -> {3, 523} | confidence=0.9531, support=305
+{451, 523} -> {3, 487} | confidence=0.9356, support=305
+{487, 523} -> {3, 451} | confidence=0.9414, support=305
+{451} -> {3, 488, 523} | confidence=0.9075, support=304
+{488} -> {3, 451, 523} | confidence=0.9102, support=304
+{3, 451} -> {488, 523} | confidence=0.9354, support=304
+{3, 488} -> {451, 523} | confidence=0.9325, support=304
+{3, 523} -> {451, 488} | confidence=0.9129, support=304
+{451, 488} -> {3, 523} | confidence=0.9530, support=304
+{451, 523} -> {3, 488} | confidence=0.9325, support=304
+{488, 523} -> {3, 451} | confidence=0.9325, support=304
+{487} -> {3, 488, 523} | confidence=0.9075, support=304
+{488} -> {3, 487, 523} | confidence=0.9102, support=304
+{3, 487} -> {488, 523} | confidence=0.9383, support=304
+{3, 488} -> {487, 523} | confidence=0.9325, support=304
+{3, 523} -> {487, 488} | confidence=0.9129, support=304
+{487, 488} -> {3, 523} | confidence=0.9560, support=304
+{487, 523} -> {3, 488} | confidence=0.9383, support=304
+{488, 523} -> {3, 487} | confidence=0.9325, support=304
+{111, 451} -> {487, 488} | confidence=0.9224, support=297
+{111, 487} -> {451, 488} | confidence=0.9252, support=297
+{111, 488} -> {451, 487} | confidence=0.9310, support=297
+{451, 487} -> {111, 488} | confidence=0.9281, support=297
+{451, 488} -> {111, 487} | confidence=0.9310, support=297
+{487, 488} -> {111, 451} | confidence=0.9340, support=297
+{111} -> {451, 487, 523} | confidence=0.9015, support=302
+{451} -> {111, 487, 523} | confidence=0.9015, support=302
+{487} -> {111, 451, 523} | confidence=0.9015, support=302
+{111, 451} -> {487, 523} | confidence=0.9379, support=302
+{111, 487} -> {451, 523} | confidence=0.9408, support=302
+{111, 523} -> {451, 487} | confidence=0.9292, support=302
+{451, 487} -> {111, 523} | confidence=0.9438, support=302
+{451, 523} -> {111, 487} | confidence=0.9264, support=302
+{487, 523} -> {111, 451} | confidence=0.9321, support=302
+{111, 451} -> {488, 523} | confidence=0.9317, support=300
+{111, 488} -> {451, 523} | confidence=0.9404, support=300
+{111, 523} -> {451, 488} | confidence=0.9231, support=300
+{451, 488} -> {111, 523} | confidence=0.9404, support=300
+{451, 523} -> {111, 488} | confidence=0.9202, support=300
+{488, 523} -> {111, 451} | confidence=0.9202, support=300
+{111, 487} -> {488, 523} | confidence=0.9346, support=300
+{111, 488} -> {487, 523} | confidence=0.9404, support=300
+{111, 523} -> {487, 488} | confidence=0.9231, support=300
+{487, 488} -> {111, 523} | confidence=0.9434, support=300
+{487, 523} -> {111, 488} | confidence=0.9259, support=300
+{488, 523} -> {111, 487} | confidence=0.9202, support=300
+{451, 487} -> {488, 523} | confidence=0.9344, support=299
+{451, 488} -> {487, 523} | confidence=0.9373, support=299
+{451, 523} -> {487, 488} | confidence=0.9172, support=299
+{487, 488} -> {451, 523} | confidence=0.9403, support=299
+{487, 523} -> {451, 488} | confidence=0.9228, support=299
+{488, 523} -> {451, 487} | confidence=0.9172, support=299
+{111, 451} -> {3, 487, 488} | confidence=0.9037, support=291
+{111, 487} -> {3, 451, 488} | confidence=0.9065, support=291
+{111, 488} -> {3, 451, 487} | confidence=0.9122, support=291
+{451, 487} -> {3, 111, 488} | confidence=0.9094, support=291
+{451, 488} -> {3, 111, 487} | confidence=0.9122, support=291
+{487, 488} -> {3, 111, 451} | confidence=0.9151, support=291
+{3, 111} -> {451, 487, 523} | confidence=0.9108, support=296
+{3, 451} -> {111, 487, 523} | confidence=0.9108, support=296
+{3, 487} -> {111, 451, 523} | confidence=0.9136, support=296
+{111, 451} -> {3, 487, 523} | confidence=0.9193, support=296
+{111, 487} -> {3, 451, 523} | confidence=0.9221, support=296
+{111, 523} -> {3, 451, 487} | confidence=0.9108, support=296
+{451, 487} -> {3, 111, 523} | confidence=0.9250, support=296
+{451, 523} -> {3, 111, 487} | confidence=0.9080, support=296
+{487, 523} -> {3, 111, 451} | confidence=0.9136, support=296
+{3, 111} -> {451, 488, 523} | confidence=0.9046, support=294
+{3, 451} -> {111, 488, 523} | confidence=0.9046, support=294
+{3, 488} -> {111, 451, 523} | confidence=0.9018, support=294
+{111, 451} -> {3, 488, 523} | confidence=0.9130, support=294
+{111, 488} -> {3, 451, 523} | confidence=0.9216, support=294
+{111, 523} -> {3, 451, 488} | confidence=0.9046, support=294
+{451, 488} -> {3, 111, 523} | confidence=0.9216, support=294
+{451, 523} -> {3, 111, 488} | confidence=0.9018, support=294
+{488, 523} -> {3, 111, 451} | confidence=0.9018, support=294
+{3, 111} -> {487, 488, 523} | confidence=0.9046, support=294
+{3, 487} -> {111, 488, 523} | confidence=0.9074, support=294
+{3, 488} -> {111, 487, 523} | confidence=0.9018, support=294
+{111, 487} -> {3, 488, 523} | confidence=0.9159, support=294
+{111, 488} -> {3, 487, 523} | confidence=0.9216, support=294
+{111, 523} -> {3, 487, 488} | confidence=0.9046, support=294
+{487, 488} -> {3, 111, 523} | confidence=0.9245, support=294
+{487, 523} -> {3, 111, 488} | confidence=0.9074, support=294
+{488, 523} -> {3, 111, 487} | confidence=0.9018, support=294
+{3, 487} -> {451, 488, 523} | confidence=0.9012, support=292
+{451, 487} -> {3, 488, 523} | confidence=0.9125, support=292
+{451, 488} -> {3, 487, 523} | confidence=0.9154, support=292
+{487, 488} -> {3, 451, 523} | confidence=0.9182, support=292
+{487, 523} -> {3, 451, 488} | confidence=0.9012, support=292
+{111, 451} -> {487, 488, 523} | confidence=0.9006, support=290
+{111, 487} -> {451, 488, 523} | confidence=0.9034, support=290
+{111, 488} -> {451, 487, 523} | confidence=0.9091, support=290
+{451, 487} -> {111, 488, 523} | confidence=0.9063, support=290
+{451, 488} -> {111, 487, 523} | confidence=0.9091, support=290
+{487, 488} -> {111, 451, 523} | confidence=0.9119, support=290

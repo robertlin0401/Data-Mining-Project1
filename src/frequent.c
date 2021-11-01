@@ -11,20 +11,10 @@ Hash *candidate_head = NULL;
 
 int frequent_level = 0;
 
-void print_frequent_itemset(Frequent *target)
-{
-    Itemset *itemset_list_ptr = target->itemset_list_head;
-    while (itemset_list_ptr) {
-        print_itemset(itemset_list_ptr);
-        printf("\n");
-        itemset_list_ptr = itemset_list_ptr->next;
-    }
-}
-
 void generate_candidate(int itemID_digit)
 {
+    candidate_head = new_hash();
     if (frequent_level == 1) { // level-1 candidates
-        candidate_head = new_hash();
         Item *item_list_head = NULL;
 
         /* Traverse through the transactions and find all unique items. */
@@ -38,9 +28,9 @@ void generate_candidate(int itemID_digit)
                     item_list_head = new_item(transaction_ptr->item_list_ptr->itemID);
                 } else {
                     if (item_list_head->itemID > transaction_ptr->item_list_ptr->itemID) {
-                        Item *item_ptr = new_item(transaction_ptr->item_list_ptr->itemID);
-                        item_ptr->next = item_list_head;
-                        item_list_head = item_ptr;
+                        Item *temp = new_item(transaction_ptr->item_list_ptr->itemID);
+                        temp->next = item_list_head;
+                        item_list_head = temp;
                     } else {
                         Item *item_list_ptr = item_list_head;
                         bool is_unique = 1;
@@ -56,9 +46,9 @@ void generate_candidate(int itemID_digit)
                         if (item_list_ptr->itemID == transaction_ptr->item_list_ptr->itemID)
                             is_unique = 0;
                         if (is_unique) {
-                            Item *item_ptr = new_item(transaction_ptr->item_list_ptr->itemID);
-                            item_ptr->next = item_list_ptr->next;
-                            item_list_ptr->next = item_ptr;
+                            Item *temp = new_item(transaction_ptr->item_list_ptr->itemID);
+                            temp->next = item_list_ptr->next;
+                            item_list_ptr->next = temp;
                         }
                     }
                 }
@@ -93,10 +83,11 @@ void count_support_of_candidate(int itemID_digit)
 {
     transaction_ptr = transaction_head;
     while (transaction_ptr) {
-        Itemset *transaction_itemset = new_itemset();
-        transaction_itemset->item_list_head = transaction_ptr->item_list_head;
-        transaction_itemset->length = transaction_ptr->length;
-        Itemset *transaction_sub_itemset = generate_sub_itemset(transaction_itemset, frequent_level);
+        Itemset *temp = new_itemset();
+        temp->item_list_head = transaction_ptr->item_list_head;
+        temp->length = transaction_ptr->length;
+        Itemset *transaction_sub_itemset = generate_sub_itemset(temp, frequent_level);
+        free(temp);
 
         Itemset *transaction_sub_ptr = transaction_sub_itemset;
         while (transaction_sub_ptr) {
@@ -150,4 +141,15 @@ void generate_frequent_itemset(int support_count)
     free_itemset_list(infrequent_list_ptr);
     free_hash(candidate_head);
     // print_frequent_itemset(frequent_ptr);
+}
+
+void print_frequent_itemset(Frequent *target)
+{
+    Itemset *itemset_list_ptr = target->itemset_list_head;
+    while (itemset_list_ptr) {
+        print_itemset(itemset_list_ptr);
+        printf("\n");
+        itemset_list_ptr = itemset_list_ptr->next;
+    }
+    printf("\n");
 }

@@ -16,9 +16,6 @@ extern Hash *candidate_head;
 
 extern int frequent_level;
 
-/* Print out the itemset list in the target frequent level. */
-void print_frequent_itemset(Frequent *target);
-
 /* Generate the candidate hash table based on the frequent level. */
 void generate_candidate(int itemID_digit);
 
@@ -35,5 +32,8 @@ void new_frequent_level();
  * greater than minimum requirement, insert them into the frequent itemset.
  */
 void generate_frequent_itemset(int support_count);
+
+/* Print out the itemset list in the target frequent level. */
+void print_frequent_itemset(Frequent *target);
 
 #endif
